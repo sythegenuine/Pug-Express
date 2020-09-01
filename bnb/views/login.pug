@@ -1,0 +1,45 @@
+//- <!DOCTYPE html>
+//- <html lang="en">
+//- <head>
+//- </head>
+//- <body>
+//-     <form>
+//-         <input type="text" placeholder="id">
+//-         <input type="password" placeholder="pw">
+//-         <button class="regiBtn">SignIn!</button>
+//-     </form>
+//-     <script src="/public/javascripts/app.js"></script>
+//- </body>
+//- </html>
+
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  form(action="/login", method="post")
+    input(
+  type='text'
+  placeholder='id'
+  name="id"
+)
+    input(
+  type='password'
+  placeholder='pw'
+  name="password"
+)
+    button(
+        type="submit"
+        class="loginBtn"
+    )
+
+    //- script.
+    //-     const btn = document.querySelector('.loginBtn')
+    //-     btn.addEventListener('click', (e) => {
+    //-         e.preventDefault();
+        
+    //-     })
+
+
+

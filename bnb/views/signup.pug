@@ -1,0 +1,42 @@
+
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  form(method="post", action="/register")
+    input(
+        type='text'
+        placeholder='id'
+        name="id"
+        id="signupId"
+    )
+    input(
+        type='password'
+        placeholder='pw'
+        id="signupPw"
+        name="password"
+    )
+    input(
+        type='password'
+        placeholder='pw'
+        id="signupPwConfirm"
+    )
+    input(
+        type='text'
+        placeholder='nickname'
+        id="signupNickname"
+        name="nickname"
+    )
+    button(
+        type="submit"
+        class="signupBtn"
+    )
+
+    p(id="notice")
+//-   script(src="/javascripts/user.js")
+        
+
+
+

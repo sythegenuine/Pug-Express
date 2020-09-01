@@ -1,0 +1,1 @@
+require("fs").writeFileSync("user-json.json", "Hello World", "utf8")
