@@ -1,10 +1,30 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .index-nav
+    .index-nav-1
+      p.index-nav-1-content 숙소
+      p.index-nav-1-content 체험
+      p.index-nav-1-content 온라인 체험
+    .index-nav-2
+      .index-nav-2-item-1
+        .index-nav-2-box
+          .index-nav-2-title 위치
+          input.index-nav-2-subtitle(placeholder="어디로 여행가세요?")
 
-  a(href="/logout") logout 
-  br
-
-  a(href="/login") login
+      .index-nav-2-item-2
+        .index-nav-2-box
+          .index-nav-2-title 체크인
+          .index-nav-2-subtitle 날짜 추가
+      .index-nav-2-item-3
+        .index-nav-2-box
+          .index-nav-2-title 체크아웃
+          .index-nav-2-subtitle 날짜 추가
+      .index-nav-2-item-4
+        .index-nav-2-box
+          .index-nav-2-title 인원
+          .index-nav-2-subtitle 게스트 추가
+      .index-nav-2-item-5
+        .index-nav-2-btn
+          i.fas.fa-search
+          p.fa-search- 검색

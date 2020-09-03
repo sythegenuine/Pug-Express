@@ -3,16 +3,24 @@ const router = express.Router();
 const bodyParser = require('body-parser')
 const fs = require("fs");
 const crypto = require("crypto");
+const { X_OK } = require("constants");
 const DBdirectory = "./routes/DB/";
 
 /* GET home page. */
+router.get('/test', (req,res) => {
+  res.render('_header')
+})
 
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Airbnb", isAuth: true });
+
+  console.log(req.cookies.sid)
+  let isAuth = req.cookies.sid === undefined ? false : true;
+  console.log(isAuth)
+  res.render("index", { title: "Airbnb", isAuth });
 });
 
 router.get("/register", function (req, res, next) {
-  res.render("signup", { title: "Signup", isAuth: false});
+  res.render("signup", { title: "Signup" });
 });
 
 router.post("/register", (req, res) => {
@@ -107,6 +115,9 @@ router.post('/login', (req, res) => {
     if(datum.id === req.body.id && datum.password === req.body.password) {
       res.cookie("sid", getRandomSid())
       console.log('COOKIE Generated!')
+
+      let isAuth = (req.cookies.sid === "" ? false : true);
+      console.log(isAuth)
       res.redirect('/')
     } else {
       console.log('Please check ur info!')
@@ -116,10 +127,13 @@ router.post('/login', (req, res) => {
 
 router.get('/logout', (req, res) => {
   // console.log("initial", res.req.headers.cookie)
-  console.log(res.req.headers.cookie)
-
+  console.log(req.cookies.sid)
+  let isAuth = (req.cookies.sid === "" ? false : true);
+  console.log(isAuth)
   res.clearCookie("sid")
-  console.log(res.req.headers.cookie)
+  console.log("dassdadsa",req.cookies.sid)
+
+  console.log(isAuth)
   res.redirect('/')
 
 })

@@ -1,0 +1,46 @@
+.navbar
+    .nav-logo
+        img.nav-logo(src="https://user-images.githubusercontent.com/46775877/91931146-9651d000-ed1d-11ea-835a-12d3a779010e.png")
+    .nav-right
+        .nav-right-1
+            p.host 호스트 되기
+        .nav-right-2
+            .nav-right-2-icons
+                i.fas.fa-globe
+                i.fas.fa-chevron-down
+            //- span span
+        .nav-right-3(onclick="{nav_drop()}")
+            //- logo logo
+            i.fas.fa-bars
+            i.fas.fa-user-circle
+
+.dropdown#dropdown
+    .dropdown-content
+      if (!isAuth)
+        a(href='/register').dropdown-item 회원가입
+        a(href='/login').dropdown-item 로그인
+        p.dropdown-item-line 
+        p.dropdown-item 숙소 호스트 되기
+        p.dropdown-item 체험 호스팅하기
+        p.dropdown-item 도움말
+      else
+        p.dropdown-item 안녕하세요, 회원님
+        a(href="/logout") logout
+        p.dropdown-item-line 
+        p.dropdown-item 숙소 호스트 되기
+        p.dropdown-item 체험 호스팅하기
+        p.dropdown-item 도움말
+script.
+    let dropClickCounter = 0
+    const nav_drop = () => {
+        dropClickCounter += 1
+        let dropdown = document.querySelector('#dropdown')
+        if (dropClickCounter % 2 ===1) {
+        dropdown.classList.remove('dropdown')
+        dropdown.classList.add('dropdown-click')
+
+       } else {
+        dropdown.classList.remove('dropdown-click')
+        dropdown.classList.add('dropdown')
+       }
+    }

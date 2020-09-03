@@ -1,8 +1,286 @@
 body {
-  padding: 50px;
+  width: 100%;
+  margin: 0;
+  flex-direction: column;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  display: flex;
+  justify-content: center;
 }
 
 a {
   color: #00B7FF;
+}
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: #00B7FF;
+  box-sizing: border-box;
+  padding: 0 80px;
+  border: 1px solid #cccccc;
+  background-color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  width: 130px;
+  height: auto;
+}
+
+img {
+  /* width: 118px; */
+
+}
+.nav-right {
+  width: 227.55px;
+  display: flex;
+
+}
+
+.nav-right-1 {
+  width: 93.55px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-right-2 {
+  width: 61px;
+  
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-right-2-icons {
+  width: 31px;
+  height: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-right-3 {
+  width: 77px;
+  height: 42px;
+  border: 1px solid gainsboro;
+  border-radius: 30px;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+i.fa-user-circle {
+  font-size: 28.69px;
+
+}
+
+p.host {
+  font-size: 14px;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #222222;
+}
+
+i.fa-globe {
+  font-size: 16px;
+}
+
+.dropdown {
+  width: 230px;
+  height: 250px;
+  box-sizing: border-box;
+  border: 1px solid #DDDDDD;
+  opacity: 0;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 21px;
+  position: absolute;
+  right: 80px;
+  top: 90px;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a.dropdown-item {
+  color: #222222;
+}
+
+.dropdown-content {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropdown-item {
+  padding-left: 12px;
+  margin: 10px;
+}
+
+p.dropdown-item-line {
+  width: 100%;
+  border: 1px solid #DDDDDD;
+  margin: 10px 0;
+}
+
+.dropdown-click {
+  width: 230px;
+  height: 250px;
+  box-sizing: border-box;
+  border: 1px solid #DDDDDD;
+
+
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 21px;
+  position: absolute;
+  right: 80px;
+  top: 90px;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.index-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  
+}
+
+.index-nav-1 {
+  display: flex;
+  width: 80%;
+
+}
+
+.index-nav-1-content {
+  display: flex;
+  padding: 10px;
+}
+
+.index-nav-2 {
+  border: 1px solid #B0B0B0;
+  border-radius: 12px;
+  display: flex;
+  width: 80%;
+  height: 68px;
+
+}
+
+input.index-nav-2-subtitle {
+  border: none;
+}
+
+.index-nav-2-box {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-nav-2-title {
+  display: flex;
+  width: 80%;
+  font-weight: 800 ;
+  letter-spacing: 0.04em ;
+  font-size: 10px;
+  line-height: 12px;
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.index-nav-2-subtitle {
+  display: flex;
+  width: 80%;
+  font-size: 14px;
+  line-height: 18px;
+  color: #717171 ;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.index-nav-2-item-1 {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-right: 1px solid #B0B0B0;
+}
+
+.index-nav-2-item-2 {
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;  
+  border-right: 1px solid #B0B0B0;
+}
+
+.index-nav-2-item-3 {
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-right: 1px solid #B0B0B0;
+}
+
+.index-nav-2-item-4 {
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.index-nav-2-item-5 {
+  width: 11%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.index-nav-2-btn {
+  background-color: #f1205f;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+
+}
+
+p.fa-search-, i.fa-search {
+  color: white;
+  display: flex;
+  font-size: 17px;
+  padding: 4px;
 }
