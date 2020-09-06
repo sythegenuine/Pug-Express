@@ -6,25 +6,156 @@ block content
       p.index-nav-1-content 숙소
       p.index-nav-1-content 체험
       p.index-nav-1-content 온라인 체험
-    .index-nav-2
-      .index-nav-2-item-1
-        .index-nav-2-box
-          .index-nav-2-title 위치
-          input.index-nav-2-subtitle(placeholder="어디로 여행가세요?")
+    form
+      .index-nav-2
+        .index-nav-2-item-1
+          .index-nav-2-box
+            .index-nav-2-title 위치
+            input.index-nav-2-subtitle(placeholder="어디로 여행가세요?" onClick="{locationInputHandler()}" name="location")
 
-      .index-nav-2-item-2
-        .index-nav-2-box
-          .index-nav-2-title 체크인
-          .index-nav-2-subtitle 날짜 추가
-      .index-nav-2-item-3
-        .index-nav-2-box
-          .index-nav-2-title 체크아웃
-          .index-nav-2-subtitle 날짜 추가
-      .index-nav-2-item-4
-        .index-nav-2-box
-          .index-nav-2-title 인원
-          .index-nav-2-subtitle 게스트 추가
-      .index-nav-2-item-5
-        .index-nav-2-btn
-          i.fas.fa-search
-          p.fa-search- 검색
+        .index-nav-2-item-2
+          .index-nav-2-box
+            .index-nav-2-title 체크인
+            #start-date-p.index-nav-2-subtitle 날짜 추가
+              
+              input#startDate(type="date" onChange="{startDateHandler()}" name="start-date")
+                
+              
+        .index-nav-2-item-3
+          .index-nav-2-box
+            .index-nav-2-title 체크아웃
+            #end-date-p.index-nav-2-subtitle 날짜 추가
+              input#endDate(type="date" onChange="{endDateHandler()}" name="end-date")          
+        .index-nav-2-item-4(onClick="{peopleHandler()}")
+          .index-nav-2-box
+            .index-nav-2-title 인원
+            .index-nav-2-subtitle 게스트 추가
+        .index-nav-2-item-5
+          button(type="submit").index-nav-2-btn
+            i.fas.fa-search
+            p.fa-search- 검색
+    
+      .people
+        .people-container
+          .people-1.each-people 
+            p 성인
+            .counter
+              .minus(onClick="minusClickHandler1()") -
+              input#counter-1(type="number" value="0" name="people1")
+              .plus(onClick="plusClickHandler1()") +
+            
+          
+          .people-2.each-people 
+            p 어린이
+            .counter
+              .minus(onClick="minusClickHandler2()") -
+              input#counter-2(type="number" value="0" name="people2")
+              .plus(onClick="plusClickHandler2()") +
+
+          .people-3.each-people 
+            p 유아
+            .counter
+              .minus(onClick="minusClickHandler3()") -
+              input#counter-3(type="number" value="0" name="people3")
+              .plus(onClick="plusClickHandler3()") +
+      
+      .location-input-onclick-container
+        .location-input-onclick
+          i.fas.fa-map-marked
+          p.location-rec 근처 추천 장소
+
+    .intro-img-box-container
+      .intro-img-box
+        img#intro-img(src="https://a0.muscache.com/im/pictures/16df1348-322f-4482-8694-3ccbdbf078b1.jpg?im_w=1920")
+        .intro-p-box
+          p#intro-img-p1 이제, 여행은 가까운 곳에서
+          p#intro-img-p2 가까운 곳의 숨겨진 아름다움을 발견하는 색다른 휴가를 즐겨보세요. 
+          p#intro-img-p3 가까운 여행지 둘러보기 >
+
+  script(type="text/javascript").
+
+    const locationInputOnclick = document.querySelector('.location-input-onclick-container')
+    const calendar = document.querySelector('.calendar')
+    const people = document.querySelector('.people')
+    const plus = document.querySelector('.plus')
+    const minus = document.querySelector('.minus')
+    const counterNum1 = document.querySelector('input#counter-1')
+    const counterNum2 = document.querySelector('input#counter-2')
+    const counterNum3 = document.querySelector('input#counter-3')
+    const form = document.querySelector('form')
+    const locationInputHandler = () => {
+      locationInputOnclick.classList.remove('location-input-onclick-container')
+      locationInputOnclick.classList.add('location-input-clicked')
+
+    }
+  
+    const startDateHandler = () => {
+      const startDate = document.querySelector('#startDate')
+      const startDateP = document.querySelector('#start-date-p')
+      //- const startDateValue = document.getElementById("startDate").value
+
+      startDateP.innerText = startDate.value
+      
+    }
+
+    const endDateHandler = () => {
+      const endDate = document.querySelector('#endDate')
+      const endDateP = document.querySelector('#end-date-p')
+      //- const startDateValue = document.getElementById("startDate").value
+      endDateP.innerText = endDate.value
+      
+    }
+
+    const peopleHandler = () => {
+      people.classList.remove('people')
+      people.classList.add('people-clicked')
+
+    }
+    const peopleCountArray = []
+    let counter1 = 0
+    const plusClickHandler1 = () => {
+      
+      counter1 += 1
+      counterNum1.value = counter1
+      
+    }
+
+    const minusClickHandler1 = () => {
+      
+      counter1 -= 1
+      counterNum1.value = counter1
+    }
+
+    let counter2 = 0
+    const plusClickHandler2 = () => {
+      
+      counter2 += 1
+
+      counterNum2.value = counter2
+    }
+
+    const minusClickHandler2 = () => {
+      
+      counter2 -= 1
+
+      counterNum2.value = counter2
+    }
+
+    let counter3 = 0
+    const plusClickHandler3 = () => {
+      
+      counter3 += 1
+      counterNum3.value = counter3
+    }
+
+    const minusClickHandler3 = () => {
+      
+      counter3 -= 1
+      counterNum3.value = counter3
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault()
+
+      console.log(form)
+    })

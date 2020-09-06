@@ -137,4 +137,13 @@ router.get('/logout', (req, res) => {
   res.redirect('/')
 
 })
+
+router.get('/getposts', (req, res) => {
+  const dataBuffer = fs.readFileSync(DBdirectory + 'posts.json')
+  const dataJson = dataBuffer.toString()
+  const data = JSON.parse(dataJson)
+    res.render('__loadpost', {data: data})
+})
+    
+
 module.exports = router;
