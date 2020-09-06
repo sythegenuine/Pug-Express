@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  each datum in data
+    p= datum.place
+    p= datum.title
+    p= datum.description1
+    p= datum.description2
+    p= datum.price
+    img(src=datum.image)
