@@ -1,10 +1,14 @@
 extends layout
 
 block content
-  each datum in data
-    p= datum.place
-    p= datum.title
-    p= datum.description1
-    p= datum.description2
-    p= datum.price
-    img(src=datum.image)
+  .loadpost-body
+    each datum in data
+      .post-container
+        .post-container-img
+            img(class="post-img" src=datum.image)    
+        .post-container-content
+            p= datum.place
+            p= datum.title
+            p= datum.description1
+            p= datum.description2
+            p= datum.price

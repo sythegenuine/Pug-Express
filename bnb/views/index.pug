@@ -41,7 +41,7 @@ block content
             p 성인
             .counter
               .minus(onClick="minusClickHandler1()") -
-              input#counter-1(type="number" value="0" name="people1")
+              input#counter-1(type="number" value="0" min="0" name="people1")
               .plus(onClick="plusClickHandler1()") +
             
           
@@ -49,14 +49,14 @@ block content
             p 어린이
             .counter
               .minus(onClick="minusClickHandler2()") -
-              input#counter-2(type="number" value="0" name="people2")
+              input#counter-2(type="number" value="0" min="0" name="people2")
               .plus(onClick="plusClickHandler2()") +
 
           .people-3.each-people 
             p 유아
             .counter
               .minus(onClick="minusClickHandler3()") -
-              input#counter-3(type="number" value="0" name="people3")
+              input#counter-3(type="number" value="0" min="0" name="people3")
               .plus(onClick="plusClickHandler3()") +
       
       .location-input-onclick-container
@@ -111,7 +111,7 @@ block content
       people.classList.add('people-clicked')
 
     }
-    const peopleCountArray = []
+
     let counter1 = 0
     const plusClickHandler1 = () => {
       
@@ -151,6 +151,7 @@ block content
     const minusClickHandler3 = () => {
       
       counter3 -= 1
+      if (counter3>=0)
       counterNum3.value = counter3
     }
 

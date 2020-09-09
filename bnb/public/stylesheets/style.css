@@ -99,8 +99,17 @@ i.fa-globe {
   display: none;
 }
 
-a.dropdown-item {
+.dropdown-item {
   color: #222222;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.dropdown-item:hover {
+  color: #222222;
+  background-color: #cccccc;
 }
 
 .dropdown-content {
@@ -113,13 +122,17 @@ a.dropdown-item {
 
 .dropdown-item {
   padding-left: 12px;
-  margin: 10px;
+
+  display: flex;
+  align-items: center;
 }
 
-p.dropdown-item-line {
+.dropdown-item-line {
   width: 100%;
   border: 1px solid #DDDDDD;
   margin: 10px 0;
+
+
 }
 
 .dropdown-click {
@@ -428,6 +441,7 @@ input#endDate {
 .counter {
   width: 100px;
   height: 30px;
+  cursor: default; 
 
   display: flex;
   justify-content: space-between;
@@ -468,17 +482,18 @@ input#endDate {
 
 input#counter-1 {
   border: none;
-  width: 25px;
+  width: 30px;
+  
 }
 
 input#counter-2 {
   border: none;
-  width: 25px;
+  width: 30px;
 
 }
 
 input#counter-3 {
   border: none;
-  width: 25px;
+  width: 30px;
 
 }

@@ -19,17 +19,17 @@
       if (!isAuth)
         a(href='/register').dropdown-item 회원가입
         a(href='/login').dropdown-item 로그인
-        p.dropdown-item-line 
-        p.dropdown-item 숙소 호스트 되기
-        p.dropdown-item 체험 호스팅하기
-        p.dropdown-item 도움말
+        .dropdown-item-line 
+        .dropdown-item 숙소 호스트 되기
+        .dropdown-item 체험 호스팅하기
+        .dropdown-item 도움말
       else
-        p.dropdown-item 안녕하세요, 회원님
-        a(href="/logout") logout
-        p.dropdown-item-line 
-        p.dropdown-item 숙소 호스트 되기
-        p.dropdown-item 체험 호스팅하기
-        p.dropdown-item 도움말
+        .dropdown-item 안녕하세요, 회원님
+        a(href="/logout").dropdown-item 로그아웃
+        .dropdown-item-line 
+        .dropdown-item 숙소 호스트 되기
+        .dropdown-item 체험 호스팅하기
+        .dropdown-item 도움말
 script.
     let dropClickCounter = 0
     const nav_drop = () => {
