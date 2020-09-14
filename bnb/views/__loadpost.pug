@@ -1,14 +1,21 @@
 extends layout
 
 block content
-  .loadpost-body
-    each datum in data
-      .post-container
-        .post-container-img
-            img(class="post-img" src=datum.image)    
-        .post-container-content
-            p= datum.place
-            p= datum.title
-            p= datum.description1
-            p= datum.description2
-            p= datum.price
+  if dArray.length === 0
+    .loadpost-body
+      p result matching query does not exist.
+  else 
+    .loadpost-body
+        each datum in dArray
+            .post-container
+                p= datum.place            
+                .post-container-img
+                    img(class="post-img" src=datum.image)    
+                .post-container-content
+                    p= datum.title
+                    p= datum.description1
+                    p= datum.description2
+                    p= datum.price
+//-   script.
+//-     const loadpostBody = document.querySelector('.loadpost-body')
+    

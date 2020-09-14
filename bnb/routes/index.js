@@ -7,10 +7,6 @@ const { X_OK } = require("constants");
 const DBdirectory = "./routes/DB/";
 
 /* GET home page. */
-router.get('/test', (req,res) => {
-  res.render('_header')
-})
-
 router.get("/", function (req, res, next) {
 
   console.log(req.cookies.sid)
@@ -18,6 +14,11 @@ router.get("/", function (req, res, next) {
   console.log(isAuth)
   res.render("index", { title: "Airbnb", isAuth });
 });
+
+// router.post('/', (req, res) => {
+//   console.log('ff')
+//   res.redirect('/getposts')
+// })
 
 router.get("/register", function (req, res, next) {
   res.render("signup", { title: "Signup" });
@@ -56,8 +57,8 @@ const addUser = (id, password, nickname) => {
         let counter = 0
         data.map((datum)=> {
           if(datum.id === newUser.id)
-          counter +=1
-            return console.log('User ID already exists!')
+            counter +=1
+          return console.log('User ID already exists!')
         })
         if (counter === 0)
         data.push(newUser)
@@ -138,12 +139,23 @@ router.get('/logout', (req, res) => {
 
 })
 
-router.get('/getposts', (req, res) => {
+
+
+router.post('/getposts', (req, res) => {
   const dataBuffer = fs.readFileSync(DBdirectory + 'posts.json')
   const dataJson = dataBuffer.toString()
   const data = JSON.parse(dataJson)
-    res.render('__loadpost', {data: data})
+  let location = req.body.location
+  let dArray = []
+
+  data.map((datum) => {
+    if (datum.place === location)
+    dArray.push(datum)
+  })
+
+    res.render('__loadpost', {dArray})
 })
     
+
 
 module.exports = router;

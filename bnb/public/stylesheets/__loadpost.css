@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .post-container-img {
@@ -43,4 +43,15 @@ img.post-img {
 
     display: flex;
     flex-direction: column;
+}
+
+.post-container-content > p {
+    margin: 0.6rem;
+}
+
+.post-container > p {
+    font-size: 1rem;
+    font-weight: 800;
+
+    margin-bottom: 0.2rem;
 }

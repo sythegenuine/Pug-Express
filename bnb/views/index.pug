@@ -6,7 +6,7 @@ block content
       p.index-nav-1-content 숙소
       p.index-nav-1-content 체험
       p.index-nav-1-content 온라인 체험
-    form
+    form(action="/getposts", method="post")
       .index-nav-2
         .index-nav-2-item-1
           .index-nav-2-box
@@ -17,47 +17,46 @@ block content
           .index-nav-2-box
             .index-nav-2-title 체크인
             #start-date-p.index-nav-2-subtitle 날짜 추가
-              
-              input#startDate(type="date" onChange="{startDateHandler()}" name="start-date")
-                
-              
+              input#startDate(type="date" name="start_date" onSubmit="{startDateHandler()}")
+         
         .index-nav-2-item-3
           .index-nav-2-box
             .index-nav-2-title 체크아웃
             #end-date-p.index-nav-2-subtitle 날짜 추가
-              input#endDate(type="date" onChange="{endDateHandler()}" name="end-date")          
+              input#endDate(type="date" name="end_date" onSubmit="{endDateHandler()}")          
         .index-nav-2-item-4(onClick="{peopleHandler()}")
           .index-nav-2-box
             .index-nav-2-title 인원
             .index-nav-2-subtitle 게스트 추가
+    
+        .people
+          .people-container
+            .people-1.each-people 
+              p 성인
+              .counter
+                .minus(onClick="minusClickHandler1()") -
+                input#counter-1(type="number" value="0" min="0" name="people1")
+                .plus(onClick="plusClickHandler1()") +
+              
+            
+            .people-2.each-people 
+              p 어린이
+              .counter
+                .minus(onClick="minusClickHandler2()") -
+                input#counter-2(type="number" value="0" min="0" name="people2")
+                .plus(onClick="plusClickHandler2()") +
+
+            .people-3.each-people 
+              p 유아
+              .counter
+                .minus(onClick="minusClickHandler3()") -
+                input#counter-3(type="number" value="0" min="0" name="people3")
+                .plus(onClick="plusClickHandler3()") +
         .index-nav-2-item-5
           button(type="submit").index-nav-2-btn
             i.fas.fa-search
             p.fa-search- 검색
-    
-      .people
-        .people-container
-          .people-1.each-people 
-            p 성인
-            .counter
-              .minus(onClick="minusClickHandler1()") -
-              input#counter-1(type="number" value="0" min="0" name="people1")
-              .plus(onClick="plusClickHandler1()") +
-            
-          
-          .people-2.each-people 
-            p 어린이
-            .counter
-              .minus(onClick="minusClickHandler2()") -
-              input#counter-2(type="number" value="0" min="0" name="people2")
-              .plus(onClick="plusClickHandler2()") +
 
-          .people-3.each-people 
-            p 유아
-            .counter
-              .minus(onClick="minusClickHandler3()") -
-              input#counter-3(type="number" value="0" min="0" name="people3")
-              .plus(onClick="plusClickHandler3()") +
       
       .location-input-onclick-container
         .location-input-onclick
@@ -122,6 +121,11 @@ block content
     const counterNum2 = document.querySelector('input#counter-2')
     const counterNum3 = document.querySelector('input#counter-3')
     const form = document.querySelector('form')
+    const startDate = document.querySelector('#startDate')
+    const startDateP = document.querySelector('#start-date-p')
+    const endDate = document.querySelector('#endDate')
+    const endDateP = document.querySelector('#end-date-p')
+
     const locationInputHandler = () => {
       locationInputOnclick.classList.remove('location-input-onclick-container')
       locationInputOnclick.classList.add('location-input-clicked')
@@ -129,17 +133,13 @@ block content
     }
   
     const startDateHandler = () => {
-      const startDate = document.querySelector('#startDate')
-      const startDateP = document.querySelector('#start-date-p')
       //- const startDateValue = document.getElementById("startDate").value
-
       startDateP.innerText = startDate.value
       
     }
 
     const endDateHandler = () => {
-      const endDate = document.querySelector('#endDate')
-      const endDateP = document.querySelector('#end-date-p')
+
       //- const startDateValue = document.getElementById("startDate").value
       endDateP.innerText = endDate.value
       
@@ -193,9 +193,3 @@ block content
       if (counter3>=0)
       counterNum3.value = counter3
     }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault()
-
-      console.log(form)
-    })

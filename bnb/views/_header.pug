@@ -35,7 +35,10 @@ script.
     const nav_drop = () => {
         dropClickCounter += 1
         let dropdown = document.querySelector('#dropdown')
+        let dropdownitem = document.querySelector('.dropdown')
+        
         if (dropClickCounter % 2 ===1) {
+        console.log(dropClickCounter)
         dropdown.classList.remove('dropdown')
         dropdown.classList.add('dropdown-click')
 
